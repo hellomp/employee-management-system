@@ -1,39 +1,39 @@
-<h2 class="text-2xl leading-tight my-3">Employees</h2>
-<table class="table p-4 bg-white shadow rounded-lg w-full text-left">
+<h2 class="my-3 text-2xl leading-tight">Employees</h2>
+<table class="table w-full p-4 text-left bg-white rounded-lg shadow">
   <thead>
     <tr>
       <th
         class="
-          border-b-2
           p-4
-          dark:border-dark-5
-          whitespace-nowrap
           font-bold
           text-gray-900
+          border-b-2
+          dark:border-dark-5
+          whitespace-nowrap
         "
       >
         First name
       </th>
       <th
         class="
-          border-b-2
           p-4
-          dark:border-dark-5
-          whitespace-nowrap
           font-bold
           text-gray-900
+          border-b-2
+          dark:border-dark-5
+          whitespace-nowrap
         "
       >
         Last name
       </th>
       <th
         class="
-          border-b-2
           p-4
-          dark:border-dark-5
-          whitespace-nowrap
           font-bold
           text-gray-900
+          border-b-2
+          dark:border-dark-5
+          whitespace-nowrap
         "
       >
         Email
@@ -42,11 +42,11 @@
   </thead>
   <tbody>
     <tr class="text-gray-700" *ngFor="let employee of employees">
-      <td class="border-b-2 p-4 dark:border-dark-5">
+      <td class="p-4 border-b-2 dark:border-dark-5">
         {{ employee.firstName }}
       </td>
-      <td class="border-b-2 p-4 dark:border-dark-5">{{ employee.lastName }}</td>
-      <td class="border-b-2 p-4 dark:border-dark-5">{{ employee.emailId }}</td>
+      <td class="p-4 border-b-2 dark:border-dark-5">{{ employee.lastName }}</td>
+      <td class="p-4 border-b-2 dark:border-dark-5">{{ employee.emailId }}</td>
     </tr>
   </tbody>
 </table>

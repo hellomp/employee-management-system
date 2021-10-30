@@ -12,6 +12,10 @@ export class EmployeeService {
   constructor(private httpClient: HttpClient) {}
 
   getEmployees(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.baseUrl}`);
+    return this.httpClient.get<Employee[]>(this.baseUrl);
+  }
+
+  createEmployee(employee: Employee): Observable<Object> {
+    return this.httpClient.post(this.baseUrl, employee);
   }
 }
