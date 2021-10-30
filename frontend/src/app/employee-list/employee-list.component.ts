@@ -17,8 +17,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   private getEmployees() {
-    this.employeeService.getEmployees().subscribe((data) => {
-      this.employees = data;
-    });
+    this.employeeService.getEmployees().subscribe(
+      (data) => {
+        this.employees = data;
+      },
+      (error) => console.error(error)
+    );
   }
 }
