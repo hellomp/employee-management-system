@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +40,15 @@ public class EmployeeController {
   public ResponseEntity<Employee> getEmployee(@PathVariable Long id){
     Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
     return ResponseEntity.ok().body(employee);
+  }
+
+  @CrossOrigin(origins = "http://localhost:4200")
+  @PutMapping("/employees/{id}")
+  public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeUpdate){
+    Employee employee = employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee not found"));
+    employee.setFirstName(employeeUpdate.getFirstName());
+    employee.setLastName(employeeUpdate.getLastName());
+    employee.setEmailId(employeeUpdate.getEmailId());
+    return ResponseEntity.ok().body(employeeRepository.save(employee));
   }
 }
